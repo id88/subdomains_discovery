@@ -13,6 +13,7 @@ func SaveToCSV(results []Result, filename string) error {
 		return fmt.Errorf("没有结果可保存")
 	}
 
+	// #nosec G304 -- filename 来自命令行参数，用户有意控制输出路径
 	file, err := os.Create(filename)
 	if err != nil {
 		return fmt.Errorf("无法创建输出文件: %v", err)
